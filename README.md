@@ -1,6 +1,6 @@
 # React + Vite
 
-[Deploy hw12-react-fls-posts with Vite]([Deploy hw13-react-fls with Vite](https://hw12-react-fls-posts.netlify.app/))
+[Deploy hw13-react-fls with Vite](https://hw12-react-fls-posts.netlify.app/)
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
