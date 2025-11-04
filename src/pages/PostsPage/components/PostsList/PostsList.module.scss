@@ -1,0 +1,146 @@
+.list {
+	list-style: none;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: toRem(16);
+}
+
+.list__item {
+	display: flex;
+	flex-direction: column;
+	gap: toRem(15);
+	background-color: var(--turquoise-100-8);
+	@include adaptiveValue("padding-block", 16, 12);
+	@include adaptiveValue("padding-inline", 20, 15);
+	border-radius: toRem(16);
+	box-shadow: 0 0 toRem(10) rgba(0, 0, 0, 0.2);
+	transition:
+		background-color var(--transition-base),
+		transform var(--transition-base);
+	will-change: background-color, transform;
+
+	&:hover {
+		background-color: var(--turquoise-90);
+		transform: translateY(toRem(-3));
+	}
+}
+
+.title {
+	font-family: var(--font-merriweather);
+	@include adaptiveValue("font-size", 20, 16);
+	color: var(--turquoise-10);
+	margin-bottom: 0.6rem;
+}
+
+.actions {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: toRem(15);
+}
+
+.likesDislikes {
+	display: flex;
+	align-items: center;
+	gap: toRem(10);
+
+	span {
+		@include adaptiveValue("font-size", 15, 11);
+		color: var(--turquoise-20);
+	}
+}
+
+.buttonLike {
+	background: none;
+	border: none;
+	cursor: pointer;
+	@include adaptiveValue("font-size", 20, 15);
+	transition: transform var(--transition-fast);
+
+	@media (any-hover: hover) {
+		&:hover {
+			transform: scale(1.2);
+		}
+	}
+}
+
+.buttonContainer {
+	display: flex;
+	gap: toRem(8);
+	flex-wrap: wrap;
+}
+
+.button {
+	@include adaptiveValue("padding-block", 7, 4);
+	@include adaptiveValue("padding-inline", 14, 8);
+	@include adaptiveValue("font-size", 16, 10);
+	border-radius: toRem(8);
+	border: toRem(1) solid var(--turquoise-60);
+	background: var(--turquoise-70);
+	color: var(--turquoise-10);
+	cursor: pointer;
+	transition: background-color var(--transition-fast);
+
+	@media (any-hover: hover) {
+		&:hover {
+			background-color: var(--turquoise-60);
+		}
+	}
+}
+
+/* Пагінація */
+.pagination {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	@include adaptiveValue("gap", 8, 4);
+	margin-top: toRem(20);
+}
+
+.pageBtn,
+.prevBtn,
+.nextBtn {
+	background: var(--turquoise-90);
+	color: var(--turquoise-10);
+	border: toRem(1) solid var(--turquoise-60);
+	border-radius: toRem(6);
+	@include adaptiveValue("padding-block", 6, 4);
+	@include adaptiveValue("padding-inline", 12, 10);
+	@include adaptiveValue("font-size", 16, 12);
+	cursor: pointer;
+	transition: background-color var(--transition-fast);
+
+	@media (any-hover: hover) {
+		&:not(.disabled):hover {
+			background-color: var(--turquoise-70);
+		}
+	}
+}
+
+.pageBtn {
+	flex:1 1 5%;
+	max-width: toRem(46);
+}
+
+.active {
+	background: var(--turquoise-50);
+	color: #fff;
+	font-weight: 600;
+}
+
+.disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+.error,
+.load,
+.fetching {
+	text-align: center;
+	margin-top: toRem(10);
+		@include adaptiveValue("font-size", 18, 14);
+			color: var(--turquoise-110);
+}

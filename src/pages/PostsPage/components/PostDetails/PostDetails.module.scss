@@ -1,0 +1,48 @@
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: toRem(15);
+	background: var(--turquoise-80);
+	@include adaptiveValue("padding", 24, 10);
+	@include adaptiveValue("margin-bottom", 24, 14);
+	border-radius: toRem(16);
+	box-shadow: 0 0 toRem(10) rgba(0, 0, 0, 0.25);
+}
+
+.title {
+@include adaptiveValue("font-size", 24, 12);
+text-align: center;
+	color: var(--turquoise-10);
+}
+
+.id,
+.date,
+.likes,
+.dislikes {
+	@include adaptiveValue("font-size", 16, 10);
+	color: var(--turquoise-30);
+}
+
+.content {
+	font-family: var(--font-roboto);
+		color: var(--turquoise-10);
+	line-height: 1.6;
+	@include adaptiveValue("font-size", 18, 14);
+}
+
+.empty,
+.load,
+.error {
+	text-align: center;
+		@include adaptiveValue("font-size", 18, 13);
+		@include adaptiveValue("padding", 20, 14);
+	font-family: var(--font-ubuntu);
+	color: var(--turquoise-110);
+	text-shadow: toRem(1) toRem(2) toRem(2) var(--turquoise-80);
+}
+
+.error {
+	color: #ff6b6b;
+}

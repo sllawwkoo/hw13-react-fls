@@ -1,0 +1,36 @@
+.wrapper {
+	width: 100%;
+	min-height: 100%;
+	overflow: clip;
+	display: flex;
+	flex-direction: column;
+}
+
+.header {
+	padding-block: toRem(15);
+	box-shadow: 0 toRem(2) toRem(6) rgba(0, 0, 0, 0.4);
+	position: sticky;
+	top: 0;
+	z-index: 10;
+	color: var(--turquoise-10);
+	background-color: var(--turquoise-100-8);
+	backdrop-filter: blur(toRem(10)) ;
+}
+
+.main {
+	flex: 1 1 auto;
+	display: flex;
+	flex-direction: column;
+}
+
+.footer {
+	width: 100%;
+	margin-inline: auto;
+	padding-inline: toRem(15);
+	padding-block: toRem(20);
+	text-align: center;
+	color: var(--turquoise-10);
+	background-color: var(--turquoise-100-8);
+	box-shadow: 0 toRem(-2) toRem(6) rgba(0, 0, 0, 0.4);
+	@include adaptiveValue("font-size", 18, 14);
+}

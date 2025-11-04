@@ -1,0 +1,151 @@
+.wrapper {
+	flex: 1;
+	background: linear-gradient(135deg, var(--turquoise-10), var(--turquoise-30), var(--turquoise-60));
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	padding: toRem(20);
+}
+
+.container {
+	font-family: var(--font-ubuntu);
+	width: 100%;
+	max-width: toRem(700);
+	margin: toRem(40) auto;
+	padding-inline: toRem(20);
+	padding-block: toRem(30);
+	border: toRem(1) solid var(--turquoise-30);
+	border-radius: toRem(16);
+	box-shadow: 0 toRem(6) toRem(18) rgba(0, 0, 0, 0.15);
+	display: flex;
+	flex-direction: column;
+	gap: toRem(24);
+}
+
+.title {
+	@include adaptiveValue("font-size", 28, 20);
+	@include adaptiveValue("margin-bottom", 20, 15);
+	text-align: center;
+	text-shadow: 0px toRem(4) toRem(4) rgba(0, 0, 0, 0.25);
+	font-weight: 600;
+	color: var(--turquoise-90);
+	margin-bottom: toRem(8);
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+	gap: toRem(30);
+}
+
+.inputsBlock {
+	display: flex;
+	flex-direction: column;
+	gap: toRem(24);
+}
+
+.inputLine {
+	display: flex;
+	flex-direction: column;
+	gap: toRem(10);
+
+	label {
+		font-weight: 600;
+		color: var(--west-side-60);
+		text-shadow: 0px toRem(4) toRem(4) rgba(0, 0, 0, 0.25);
+		@include adaptiveValue("font-size", 18, 12);
+	}
+
+	input,
+	textarea {
+		@include adaptiveValue("padding-block", 10, 8);
+		@include adaptiveValue("padding-inline", 14, 12);
+		@include adaptiveValue("font-size", 16, 12);
+		border-radius: toRem(8);
+		border: 1px solid var(--turquoise-30);
+		background-color: var(--turquoise-10);
+		color: var(--turquoise-70);
+		font-family: var(--font-ubuntu);
+		transition:
+			border-color var(--transition-fast),
+			box-shadow var(--transition-fast);
+
+		&:focus {
+			outline: none;
+			border-color: var(--turquoise-50);
+			box-shadow: 0 0 toRem(4) rgba(214, 168, 131, 0.5);
+		}
+	}
+
+	textarea {
+		resize: vertical;
+		min-height: toRem(50);
+	}
+}
+
+.buttonsBlock {
+	display: flex;
+	gap: toRem(20);
+	align-items: center;
+	justify-content: space-between;
+
+	& > * {
+		flex: 1;
+
+		@media (max-width: $mobileSmall) {
+			flex-basis: 100%;
+		}
+	}
+
+	@media (max-width: $mobileSmall) {
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+}
+
+.button {
+	@include adaptiveValue("padding-block", 12, 8);
+	@include adaptiveValue("padding-inline", 14, 12);
+	@include adaptiveValue("font-size", 16, 12);
+	border-radius: toRem(8);
+	font-weight: 600;
+	border: none;
+	cursor: pointer;
+	background-color: var(--turquoise-80);
+	color: var(--turquoise-10);
+	transition:
+		background-color var(--transition-ease-base),
+		transform var(--transition-ease-fast);
+	will-change: background-color, transform;
+
+	@media (any-hover: hover) {
+		&:not(:disabled):hover {
+			background-color: var(--turquoise-60);
+			transform: translateY(toRem(-2));
+		}
+	}
+
+	&:active {
+		transform: scale(0.98);
+	}
+
+	&.disabled {
+		background-color: var(--turquoise-50);
+		cursor: not-allowed;
+	}
+}
+
+.error {
+	margin: auto;
+	text-align: center;
+	color: var(--turquoise-100);
+	font-weight: 600;
+	@include adaptiveValue("font-size", 20, 14);
+	margin-top: toRem(50);
+	@include adaptiveValue("padding-block", 20, 10);
+	@include adaptiveValue("padding-inline", 24, 16);
+	border-radius: toRem(8);
+	border: 1px solid var(--turquoise-30);
+	background-color: var(--turquoise-30);
+	width: fit-content;
+}

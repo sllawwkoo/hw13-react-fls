@@ -1,0 +1,95 @@
+.wrapper {
+	flex: 1;
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	padding: toRem(20);
+	background: linear-gradient(135deg, var(--turquoise-10), var(--turquoise-40), var(--turquoise-80));
+	font-family: var(--font-ubuntu);
+	color: var(--turquoise-100);
+
+	.container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: flex-start;
+		width: 100%;
+		max-width: toRem(800);
+		padding: toRem(60) toRem(20);
+		border-radius: toRem(10);
+		box-shadow:
+			toRem(-5) toRem(-5) toRem(10) 0 var(--turquoise-40),
+			toRem(5) toRem(5) toRem(10) 0 var(--turquoise-80);
+	}
+
+	.title {
+		font-family: var(--font-merriweather);
+		@include adaptiveValue("font-size", 36, 24);
+		font-weight: 700;
+		text-shadow: toRem(1) toRem(4) toRem(4) var(--turquoise-80);
+		color: var(--turquoise-100);
+		margin-bottom: toRem(24);
+		text-align: center;
+	}
+
+	.description {
+		max-width: toRem(720);
+		font-family: var(--font-roboto);
+		font-weight: 500;
+		@include adaptiveValue("font-size", 17.8, 14);
+		text-align: center;
+		margin-bottom: toRem(40);
+		line-height: 1.6;
+	}
+
+	.links {
+		display: flex;
+		gap: toRem(24);
+		justify-content: center;
+		width: 100%;
+
+		@media (max-width: $mobile) {
+			flex-direction: column;
+			align-items: center;
+		}
+
+		& > * {
+			flex-basis: 30%;
+
+			@media (max-width: $mobile) {
+				width: 60%;
+			}
+
+			@media (max-width: $mobileSmall) {
+				width: 80%;
+			}
+		}
+
+		a {
+			@include adaptiveValue("padding-block", 14, 10);
+			@include adaptiveValue("padding-inline", 28, 22);
+			@include adaptiveValue("font-size", 16, 12);
+			border-radius: toRem(12);
+			background-color: var(--turquoise-70);
+			color: var(--turquoise-10);
+			font-weight: 600;
+			text-decoration: none;
+			text-align: center;
+			transition:
+				background-color var(--transition-fast),
+				transform var(--transition-fast);
+
+			@media (any-hover: hover) {
+				&:hover {
+					background-color: var(--turquoise-80);
+					transform: translateY(-3px);
+				}
+			}
+
+			&:active {
+				background-color: var(--turquoise-80);
+				transform: translateY(0);
+			}
+		}
+	}
+}

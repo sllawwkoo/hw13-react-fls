@@ -1,0 +1,47 @@
+@use "sass:math";
+
+@use "_mixins.scss" as *;
+
+/* Підключення фрифтів */
+
+/* Google Fonts (Plugin) */
+@import url("https://fonts.googleapis.com/css?family=Roboto:regular,500,600,700,800&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Ubuntu:regular,500,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Shantell+Sans:regular,500,600,700,800&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Merriweather:regular,500,600,700,800&display=swap");
+
+// @import "_mixins.scss";
+
+/* Локальне підключення шрифтів */
+// @import "_fonts.scss";
+
+/* Скидання стилів */
+@import url("_reset.scss");
+
+// Змінні
+@import url("_variables.scss");
+
+/* Основні стилі */
+body {
+	font-family: var(--font-merriweather);
+	background-color: var(--turquoise-20);
+}
+
+#root {
+	height: 100%;
+}
+
+.wrapper {
+	width: 100%;
+	min-height: 100%;
+	overflow: clip;
+	display: flex;
+	flex-direction: column;
+}
+
+.main {
+	flex: 1 1 auto;
+	// min-height: 100%;
+	display: flex;
+	flex-direction: column;
+}
